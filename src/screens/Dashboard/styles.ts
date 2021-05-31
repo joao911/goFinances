@@ -18,6 +18,9 @@ export const Header = styled.View`
 export const UserContainer = styled.View`
   width: 100%;
   padding: 0px ${rh(24)}px 0px ${rh(24)}px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const UserInfo = styled.View`

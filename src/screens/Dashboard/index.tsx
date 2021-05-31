@@ -1,4 +1,7 @@
 import React from 'react';
+import Feather from 'react-native-vector-icons/Feather';
+import {rh} from '../../utils/responsive';
+import colors from '../../utils/styles/colors';
 
 import {
   Container,
@@ -27,6 +30,7 @@ const Dashboard: React.FC = () => {
               <UserName>João</UserName>
             </User>
           </UserInfo>
+          <Feather name="power" color={colors.secondary} size={rh(24)} />
         </UserContainer>
       </Header>
     </Container>
