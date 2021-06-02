@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
+import {FlatList} from 'react-native';
 import {rh, rw} from '../../utils/responsive';
 import colors from '../../utils/styles/colors';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
-
+import {DataListProps} from './index';
 export const Container = styled.View`
   flex: 1;
   background-color: ${colors.background};
@@ -69,3 +70,12 @@ export const Transactions = styled.View`
 export const Title = styled.Text`
   font-size: ${rh(18)}px;
 `;
+
+export const TransactionList = styled(
+  FlatList as new () => FlatList<DataListProps>,
+).attrs({
+  showsHorizontalScrollIndicator: false,
+  contentContainerStyle: {
+    paddingBottom: rh(20),
+  },
+})``;

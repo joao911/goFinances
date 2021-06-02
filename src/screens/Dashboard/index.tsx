@@ -1,10 +1,5 @@
 import React from 'react';
 import Feather from 'react-native-vector-icons/Feather';
-import HighlightCard from '../../components/HighlightCard';
-import TransactionCard from '../../components/TransactionCard';
-import {rh} from '../../utils/responsive';
-import colors from '../../utils/styles/colors';
-
 import {
   Container,
   Header,
@@ -17,9 +12,45 @@ import {
   HighlightCards,
   Transactions,
   Title,
+  TransactionList,
 } from './styles';
 
+import HighlightCard from '../../components/HighlightCard';
+import TransactionCard, {IData} from '../../components/TransactionCard';
+import {rh} from '../../utils/responsive';
+import colors from '../../utils/styles/colors';
+export interface DataListProps extends IData {
+  id: number;
+}
 const Dashboard: React.FC = () => {
+  const data: DataListProps[] = [
+    {
+      id: 1,
+      type: 'positive',
+      title: 'desenvolvimento de sites',
+      amount: 'R$ 12.000,00',
+      date: '04/01/1991',
+      category: {name: 'Vendas', icon: 'dollar-sign'},
+    },
+    {
+      id: 2,
+
+      type: 'negative',
+      title: 'Ifood',
+      amount: 'R$ 12.000,00',
+      date: '04/01/1991',
+      category: {name: 'Transporte', icon: 'coffee'},
+    },
+    {
+      id: 3,
+
+      type: 'negative',
+      title: 'Internet',
+      amount: 'R$ 12.000,00',
+      date: '04/01/1991',
+      category: {name: 'Despesas', icon: 'shopping-bag'},
+    },
+  ];
   return (
     <Container>
       <Header>
@@ -60,7 +91,11 @@ const Dashboard: React.FC = () => {
       </HighlightCards>
       <Transactions>
         <Title>Listagem</Title>
-        <TransactionCard />
+        <TransactionList
+          data={data}
+          renderItem={({item}: any) => <TransactionCard data={item} />}
+          keyExtractor={(item: any) => item.id.toString()}
+        />
       </Transactions>
     </Container>
   );

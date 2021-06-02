@@ -8,6 +8,7 @@ export const Container = styled.View`
   border-radius: ${rh(5)}px;
   padding: ${rh(17)}px ${rh(24)}px;
   margin-top: ${rh(19)}px;
+  /* margin-bottom: ${rh(10)}px; */
 `;
 
 export const Title = styled.Text`
@@ -16,10 +17,14 @@ export const Title = styled.Text`
   align-items: center;
   margin-top: ${rh(19)}px;
 `;
-
-export const Amount = styled.Text`
+interface AmountProps {
+  type: 'positive' | 'negative';
+}
+export const Amount = styled.Text<AmountProps>`
   font-size: ${rh(20)}px;
   margin-top: ${rh(2)}px;
+  color: ${props =>
+    props.type === 'positive' ? colors.success : colors.attention};
 `;
 
 export const Footer = styled.View`
