@@ -18,6 +18,7 @@ const Register: React.FC = () => {
   const handleTransactionTypeSelect = (type: 'up' | 'down') => {
     setTransactionType(type);
   };
+
   return (
     <Container>
       <Header>
@@ -31,12 +32,13 @@ const Register: React.FC = () => {
             <TransactionTypeButton
               type="up"
               title="Income"
+              isActive={transactionType === 'up'}
               onPress={() => handleTransactionTypeSelect('up')}
             />
             <TransactionTypeButton
               type="down"
               title="Outcome"
-              onPress={() => handleTransactionTypeSelect('down')}
+              isActive={transactionType === 'down'}
             />
           </TransactionsTypes>
         </Fields>
