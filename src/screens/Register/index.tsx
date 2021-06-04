@@ -1,17 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {Container, Header, Title, Form} from './styles';
+import {
+  Container,
+  Header,
+  Title,
+  Form,
+  Fields,
+  TransactionsTypes,
+} from './styles';
 import Input from '../../components/Forms/Input';
+import Button from '../../components/Forms/Button';
+import TransactionTypeButton from '../../components/Forms/TransactionTypeButton';
 
 const Register: React.FC = () => {
+  const [transactionType, setTransactionType] = useState('');
+
+  const handleTransactionTypeSelect = (type: 'up' | 'down') => {
+    setTransactionType(type);
+  };
   return (
     <Container>
       <Header>
         <Title>Cadastro</Title>
       </Header>
       <Form>
-        <Input placeholder="Nome" />
-        <Input placeholder="Preço" />
+        <Fields>
+          <Input placeholder="Nome" />
+          <Input placeholder="Preço" />
+          <TransactionsTypes>
+            <TransactionTypeButton
+              type="up"
+              title="Income"
+              onPress={() => handleTransactionTypeSelect('up')}
+            />
+            <TransactionTypeButton
+              type="down"
+              title="Outcome"
+              onPress={() => handleTransactionTypeSelect('down')}
+            />
+          </TransactionsTypes>
+        </Fields>
+        <Button title="Enviar" />
       </Form>
     </Container>
   );

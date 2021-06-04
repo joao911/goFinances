@@ -4,6 +4,7 @@ import {rh, rw} from '../../utils/responsive';
 import colors from '../../utils/styles/colors';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {DataListProps} from './index';
+
 export const Container = styled.View`
   flex: 1;
   background-color: ${colors.background};

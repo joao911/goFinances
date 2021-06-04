@@ -22,5 +22,13 @@ export const Title = styled.Text`
 
 export const Form = styled.View`
   flex: 1;
+  justify-content: space-between;
   padding: ${rh(24)}px;
+`;
+
+export const Fields = styled.View``;
+
+export const TransactionsTypes = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
 `;
