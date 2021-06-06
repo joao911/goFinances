@@ -20,13 +20,17 @@ export const Title = styled.Text`
   font-size: ${rh(18)}px;
   color: ${colors.shape};
 `;
-
-export const Category = styled.View`
+interface CategoryProps {
+  isActive: boolean;
+}
+export const Category = styled.TouchableOpacity<CategoryProps>`
   padding: ${rh(15)}px;
   flex-direction: row;
   align-items: center;
   border-bottom-width: ${rh(1)}px;
   border-color: ${colors.text};
+  background-color: ${props =>
+    props.isActive ? colors.secondary_light : colors.background};
 `;
 
 export const Icon = styled(Feather)`

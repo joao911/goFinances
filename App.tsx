@@ -9,7 +9,7 @@ const App = () => {
   return (
     <ThemeProvider theme={colors}>
       {/* <Dashboard /> */}
-      <CategorySelect />
+      <Register />
     </ThemeProvider>
   );
 };

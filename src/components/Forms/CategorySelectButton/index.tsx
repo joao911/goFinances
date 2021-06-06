@@ -1,16 +1,21 @@
 import React from 'react';
 
 import {Container, Title, Icon} from './styles';
+
 interface CategorySelectProps {
   title: string;
+  onPress: () => void;
 }
-const CategorySelect: React.FC<CategorySelectProps> = ({title}) => {
+const CategorySelectButton: React.FC<CategorySelectProps> = ({
+  title,
+  onPress,
+}) => {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Title>{title}</Title>
       <Icon name="chevron-down" />
     </Container>
   );
 };
 
-export default CategorySelect;
+export default CategorySelectButton;
