@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import {rh} from '../../../utils/responsive';
 import colors from '../../../utils/styles/colors';
+import {BorderlessButton} from 'react-native-gesture-handler';
 
 export const Container = styled.TouchableOpacity`
   width: 100%;
