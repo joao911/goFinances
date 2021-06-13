@@ -15,7 +15,7 @@ interface Category {
 }
 export interface IData {
   type: 'positive' | 'negative';
-  title: string;
+  name: string;
   amount: string;
   category: Category;
   date: string;
@@ -27,7 +27,7 @@ export interface TransactionCardProps {
 const TransactionCard: React.FC<TransactionCardProps> = ({data}) => {
   return (
     <Container>
-      <Title>{data.title}</Title>
+      <Title>{data.name}</Title>
       <Amount type={data.type}>
         {data.type === 'negative' && '- '}
         {data.type === 'positive' && '+ '}

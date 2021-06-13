@@ -38,7 +38,6 @@ const schema = yup.object().shape({
 const Register: React.FC = () => {
   const [transactionType, setTransactionType] = useState('');
   const [showModalCategory, setShowModalCategory] = useState(false);
-  const dataKey = '@gofinances:transactions';
   const navigation = useNavigation();
 
   const [category, setCategory] = useState({
@@ -70,7 +69,7 @@ const Register: React.FC = () => {
       return Alert.alert('Selecione a categoria');
     }
     const newTransaction = {
-      id: String(uuid.v4()),
+      // id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
       transactionType,
@@ -79,7 +78,10 @@ const Register: React.FC = () => {
     };
 
     try {
+      const dataKey = '@gofinances:transactions';
+
       const data = await AsyncStorage.getItem(dataKey);
+
       const currentData = data ? JSON.parse(data) : [];
 
       const dataFormatted = [...currentData, newTransaction];
