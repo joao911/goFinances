@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -22,6 +22,7 @@ import HighlightCard from '../../components/HighlightCard';
 import TransactionCard, {IData} from '../../components/TransactionCard';
 import {rh} from '../../utils/responsive';
 import colors from '../../utils/styles/colors';
+import {useFocusEffect} from '@react-navigation/core';
 export interface DataListProps extends IData {
   id: number;
 }
@@ -59,10 +60,12 @@ const Dashboard: React.FC = () => {
 
     setData(transactionsFormatted);
   };
-  useEffect(() => {
-    loadTransaction();
-  }, []);
 
+  useFocusEffect(
+    useCallback(() => {
+      loadTransaction();
+    }, []),
+  );
   return (
     <Container>
       <Header>
