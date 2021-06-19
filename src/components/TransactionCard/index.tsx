@@ -9,15 +9,13 @@ import {
   CategoryName,
   Date,
 } from './styles';
-interface Category {
-  name: string;
-  icon: string;
-}
+import {categories} from '../../utils/categories';
+
 export interface IData {
   type: 'positive' | 'negative';
   name: string;
   amount: string;
-  category: Category;
+  category: string;
   date: string;
 }
 export interface TransactionCardProps {
@@ -25,6 +23,7 @@ export interface TransactionCardProps {
 }
 
 const TransactionCard: React.FC<TransactionCardProps> = ({data}) => {
+  const [category] = categories.filter(item => item.key === data.category);
   return (
     <Container>
       <Title>{data.name}</Title>
@@ -35,8 +34,8 @@ const TransactionCard: React.FC<TransactionCardProps> = ({data}) => {
       </Amount>
       <Footer>
         <Category>
-          <Icon name={data.category.icon} />
-          <CategoryName>{data.category.name}</CategoryName>
+          <Icon name={category.icon} />
+          <CategoryName>{category.name}</CategoryName>
         </Category>
         <Date>{data.date}</Date>
       </Footer>

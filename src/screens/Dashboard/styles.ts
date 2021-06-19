@@ -82,3 +82,9 @@ export const TransactionList = styled(
     paddingBottom: rh(20),
   },
 })``;
+
+export const LoadContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;

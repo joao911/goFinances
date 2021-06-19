@@ -52,7 +52,7 @@ const Register: React.FC = () => {
     formState: {errors},
   } = useForm({resolver: yupResolver(schema)});
 
-  const handleTransactionTypeSelect = (type: 'up' | 'down') => {
+  const handleTransactionTypeSelect = (type: 'positive' | 'negative') => {
     setTransactionType(type);
   };
 
@@ -72,7 +72,7 @@ const Register: React.FC = () => {
       // id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
-      transactionType,
+      type: transactionType,
       category: category.key,
       date: new Date(),
     };
@@ -129,14 +129,14 @@ const Register: React.FC = () => {
               <TransactionTypeButton
                 type="up"
                 title="Income"
-                isActive={transactionType === 'up'}
-                onPress={() => handleTransactionTypeSelect('up')}
+                isActive={transactionType === 'positive'}
+                onPress={() => handleTransactionTypeSelect('positive')}
               />
               <TransactionTypeButton
                 type="down"
                 title="Outcome"
-                isActive={transactionType === 'down'}
-                onPress={() => handleTransactionTypeSelect('down')}
+                isActive={transactionType === 'negative'}
+                onPress={() => handleTransactionTypeSelect('negative')}
               />
             </TransactionsTypes>
             <CategorySelectButton
