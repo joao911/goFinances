@@ -137,20 +137,6 @@ const Dashboard: React.FC = () => {
 
     setTransactions(transactionsFormatted);
 
-    // const lasTransactionEntries = Math.max.apply(
-    //   Math,
-    //   transactions
-    //     .filter((transaction: DataListProps) => transaction.type === 'positive')
-    //     .map((transaction: DataListProps) =>
-    //       new Date(transaction.date).getTime(),
-    //     ),
-    // );
-    // const lastTransactionEntriesFormatted = Intl.DateTimeFormat('pt-br', {
-    //   day: '2-digit',
-    //   month: '2-digit',
-    //   year: '2-digit',
-    // }).format(new Date(lasTransactionEntries));
-
     setIsLoading(false);
   };
 
