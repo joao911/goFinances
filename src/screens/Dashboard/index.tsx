@@ -2,6 +2,7 @@ import React, {useState, useCallback, useEffect} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ActivityIndicator} from 'react-native';
+import {useFocusEffect} from '@react-navigation/core';
 
 import {
   Container,
@@ -24,7 +25,6 @@ import HighlightCard from '../../components/HighlightCard';
 import TransactionCard, {IData} from '../../components/TransactionCard';
 import {rh} from '../../utils/responsive';
 import colors from '../../utils/styles/colors';
-import {useFocusEffect} from '@react-navigation/core';
 
 interface HighlightProps {
   amount: string;
@@ -142,7 +142,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     loadTransaction();
-    // clear date of asyncStorage
+    // clear date of asyncStorage;
     // const dataKey = '@gofinances:transactions';
     // AsyncStorage.removeItem(dataKey);
   }, []);
