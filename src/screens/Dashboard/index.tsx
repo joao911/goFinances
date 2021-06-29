@@ -50,12 +50,20 @@ const Dashboard: React.FC = () => {
     collection: DataListProps[],
     type: 'positive' | 'negative',
   ) => {
+    const collectionFiltered = collection.filter(
+      transaction => transaction.type === type,
+    );
+
+    if (collectionFiltered.length === 0) {
+      return '0';
+    }
+
     const lasTransaction = new Date(
       Math.max.apply(
         Math,
-        collection
-          .filter(transaction => transaction.type === type)
-          .map(transaction => new Date(transaction.date).getTime()),
+        collectionFiltered.map(transaction =>
+          new Date(transaction.date).getTime(),
+        ),
       ),
     );
     return `${lasTransaction.getDate()} de ${lasTransaction.toLocaleString(
@@ -117,7 +125,10 @@ const Dashboard: React.FC = () => {
           style: 'currency',
           currency: 'BRL',
         }),
-        lastTransaction: `Última entrada dia${lastTransactionEntries}`,
+        lastTransaction:
+          lastTransactionEntries === 0
+            ? 'Não há transações'
+            : `Última entrada dia ${lastTransactionEntries}`,
       },
       expensives: {
         amount: expensiveTotal.toLocaleString('pt-br', {

@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {VictoryPie} from 'victory-native';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
@@ -15,7 +15,6 @@ import {
   ChartContainer,
   MonthSelect,
   MonthSelectIcon,
-  Previous,
   Month,
   MonthSelectButton,
   LoadContainer,
