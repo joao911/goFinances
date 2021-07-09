@@ -9,12 +9,14 @@ import 'intl/locale-data/jsonp/pt-BR';
 import {StatusBar} from 'react-native';
 import SignIn from './src/screens/SignIn';
 
+import {AuthProvider} from './src/hooks/auth';
 const App = () => {
   return (
     <ThemeProvider theme={colors}>
       <NavigationContainer>
         <StatusBar barStyle="light-content" />
         {/* <AppRoutes /> */}
+
         <SignIn />
       </NavigationContainer>
     </ThemeProvider>

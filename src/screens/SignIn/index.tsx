@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {
   Container,
@@ -7,12 +7,14 @@ import {
   Title,
   Footer,
   SignInTitle,
+  FooterWrapper,
 } from './styles';
 
-import Apple from '../../assets/apple.svg';
 import Google from '../../assets/google.svg';
+// import Apple from '../../assets/apple.svg';
 import Logo from '../../assets/logo.svg';
 import {rh, rw} from '../../utils/responsive';
+import SignInSocialBottom from '../../components/SignInSocialBottom';
 
 const SignIn: React.FC = () => {
   return (
@@ -28,7 +30,12 @@ const SignIn: React.FC = () => {
           Fça seu login com {'\n'} com uma das contas abaixo
         </SignInTitle>
       </Header>
-      <Footer />
+      <Footer>
+        <FooterWrapper>
+          <SignInSocialBottom title="Entrar com o Google" svg={Google} />
+          <SignInSocialBottom title="Entrar com Apple" svg={Google} />
+        </FooterWrapper>
+      </Footer>
     </Container>
   );
 };
