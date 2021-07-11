@@ -1,18 +1,34 @@
-import {createContext, ReactNode, useContext} from 'react';
+import React, {ReactNode, createContext, useContext} from 'react';
 
 interface AuthProviderProps {
   children: ReactNode;
 }
 
-const AuthContext = createContext([]);
+interface IUser {
+  id: string;
+  name: string;
+  email: string;
+  photo?: string;
+}
+interface IAuthContextData {
+  user: IUser;
+}
 
-const AuthProvider = ({children}: AuthProviderProps) => {
-  return <AuthContext.Provider value={[]}>{children}</AuthContext.Provider>;
-};
+const AuthContext = createContext({} as IAuthContextData);
 
-const useAuth = () => {
+function AuthProvider({children}: AuthProviderProps) {
+  const user: {
+    id: '1223445';
+    name: 'João Paulo';
+    email: 'joaopaulolacerda911@gmail,.com';
+  };
+
+  return <AuthContext.Provider value={{user}}>{children}</AuthContext.Provider>;
+}
+
+function useAth() {
   const context = useContext(AuthContext);
   return context;
-};
+}
 
-export {AuthProvider, useAuth};
+export {AuthProvider, useAth};

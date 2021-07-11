@@ -1,4 +1,5 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import {useAth} from '../../hooks/auth';
 
 import {
   Container,
@@ -17,6 +18,8 @@ import {rh, rw} from '../../utils/responsive';
 import SignInSocialBottom from '../../components/SignInSocialBottom';
 
 const SignIn: React.FC = () => {
+  const {user} = useAth();
+  console.log(user);
   return (
     <Container>
       <Header>
